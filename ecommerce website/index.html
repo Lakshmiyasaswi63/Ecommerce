@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shoe Store</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0; /* Light background color */
+        }
+        header {
+            display: flex;
+            align-items: center; /* Center items vertically */
+            justify-content: space-between; /* Space between logo and nav */
+            background-color: #0056b3; /* Header background color */
+            color: white;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+        }
+        .logo {
+            width: 100px; /* Increased logo size */
+            height: auto;
+        }
+        .hero {
+            text-align: center; /* Center text for heading and description */
+            flex-grow: 1; /* Allow hero section to take available space */
+        }
+        nav {
+            background-color: white; /* White background for the nav */
+            border-radius: 5px; /* Rounded corners for the box */
+            padding: 10px 20px; /* Padding inside the nav box */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+        }
+        nav a {
+            margin: 0 15px;
+            color: #0056b3; /* Blue text color for links */
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s; /* Smooth color transition */
+        }
+        nav a:hover {
+            color: #ffd700; /* Change color on hover */
+        }
+        .hero h1 {
+            font-size: 32px; /* Increased font size for the heading */
+            margin: 10px 0; /* Space above and below the heading */
+            font-weight: bold;
+            font-family: 'Georgia', serif; /* Changed font style for the heading */
+        }
+        .hero p {
+            font-size: 18px; /* Increased font size for the description */
+            margin: 0; /* Remove margin */
+            font-family: 'Verdana', sans-serif; /* Changed font family for description */
+        }
+        .category-name {
+            text-align: center;
+            margin: 20px 0; /* Space above the category name */
+            font-size: 28px; /* Category name font size */
+            font-weight: bold; /* Bold font */
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9); /* White background with slight transparency */
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+        }
+        .category-box {
+            background-color: #e0f7fa; /* Light blue background for each category box */
+            border: 2px solid #f6f8f8; /* Darker border color for category boxes */
+            border-radius: 10px; /* Rounded corners for boxes */
+            padding: 20px; /* Padding inside each box */
+            margin-bottom: 40px; /* Space below each category box */
+            width: 80%; /* Width of the category box */
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        .grid img {
+            width: 150px; /* Adjust image width */
+            height: 150px; /* Adjust image height */
+            border-radius: 8px; /* Rounded corners for images */
+            transition: transform 0.3s; /* Smooth image scaling */
+        }
+        .grid img:hover {
+            transform: scale(1.05); /* Scale effect on hover */
+        }
+        .button {
+            padding: 10px 20px;
+            background-color: #0056b3; /* Button background color */
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s; /* Smooth background color transition */
+        }
+        .button:hover {
+            background-color: #003d7a; /* Darker shade on hover */
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <img src="C:\Users\yasas\Downloads\ecom\images shoes\logo1.jpg" alt="Logo" class="logo"> <!-- Replace with your logo file -->
+    
+    <div class="hero">
+        <h1>Shoe Haven</h1> <!-- Display the category name -->
+        <p>Find the perfect pair of shoes for every occasion!</p> <!-- Store Description -->
+    </div>
+    
+    <nav>
+        <a href="#kids">Kids</a>
+        <a href="#women">Women</a>
+        <a href="#men">Men</a>
+    </nav>
+</header>
+
+<div class="container">
+
+    <!-- Kids Collection -->
+    <div class="category-box" id="kids">
+        <h2>Kids Shoes Collection</h2>
+        <div class="grid">
+            <div>
+                <img src="C:\Users\yasas\Downloads\ecom\images shoes\kk1.png" alt="Kids Shoe 1">
+                <p>Kids Shoe 1</p>
+                <button class="button" onclick="goToPaymentPage('Kids Shoe 1', 50, 'NJC48508-Black-X', 'Nike', ['Black', 'Pink', 'Green'], ['S', 'M', 'L'], 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.')">Shop Now</button>
+            </div>
+            <div>
+                <img src="C:\Users\yasas\Downloads\ecom\images shoes\k3.png" alt="Kids Shoe 2">
+                <p>Kids Shoe 2</p>
+                <button class="button" onclick="goToPaymentPage('Kids Shoe 2', 60, 'NJC48509-Red-S', 'Nike', ['Red', 'Blue'], ['S', 'M'], 'Vestibulum feugiat mi eget elit elementum.')">Shop Now</button>
+            </div>
+            <div>
+                <img src="C:\Users\yasas\Downloads\ecom\images shoes\k4.png" alt="Kids Shoe 3">
+                <p>Kids Shoe 3</p>
+                <button class="button" onclick="goToPaymentPage('Kids Shoe 3', 70, 'NJC48510-Yellow-M', 'Nike', ['Yellow', 'White'], ['M', 'L'], 'Integer porttitor elit id euismod elementum.')">Shop Now</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Women Collection -->
+    <div class="category-box" id="women">
+        <h2>Women Shoes Collection</h2>
+        <div class="grid">
+            <div>
+                <img src="C:\Users\yasas\Downloads\ecom\images shoes\w1.png" alt="Women Shoe 1">
+                <p>Women Shoe 1</p>
+                <button class="button" onclick="goToPaymentPage('Women Shoe 1', 80, 'NJC48511-Black-M', 'Nike', ['Black', 'Pink'], ['M', 'L'], 'Quisque a tortor vel lectus ultricies pretium quis non purus.')">Shop Now</button>
+            </div>
+            <div>
+                <img src="C:\Users\yasas\Downloads\ecom\images shoes\w2.png" alt="Women Shoe 2">
+                <p>Women Shoe 2</p>
+                <button class="button" onclick="goToPaymentPage('Women Shoe 2', 90, 'NJC48512-White-L', 'Nike', ['White', 'Gray'], ['L', 'XL'], 'Pellentesque molestie leo eget rutrum tristique.')">Shop Now</button>
+            </div>
+            <div>
+                <img src="C:\Users\yasas\Downloads\ecom\images shoes\w3.png" alt="Women Shoe 3">
+                <p>Women Shoe 3</p>
+                <button class="button" onclick="goToPaymentPage('Women Shoe 3', 100, 'NJC48513-Blue-S', 'Nike', ['Blue', 'Purple'], ['S', 'M'], 'Nulla vel molestie massa, eget iaculis elit.')">Shop Now</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Men Collection -->
+    <div class="category-box" id="men">
+        <h2>Men Shoes Collection</h2>
+        <div class="grid">
+            <div>
+                <img src="C:\Users\yasas\Downloads\ecom\images shoes\m1.png" alt="Men Shoe 1">
+                <p>Men Shoe 1</p>
+                <button class="button" onclick="goToPaymentPage('Men Shoe 1', 110, 'NJC48514-Black-L', 'Nike', ['Black', 'Gray'], ['M', 'L'], 'Morbi at urna vitae sapien vehicula aliquam.')">Shop Now</button>
+            </div>
+            <div>
+                <img src="C:\Users\yasas\Downloads\ecom\images shoes\m2.png" alt="Men Shoe 2">
+                <p>Men Shoe 2</p>
+                <button class="button" onclick="goToPaymentPage('Men Shoe 2', 120, 'NJC48515-White-S', 'Nike', ['White', 'Brown'], ['S', 'M'], 'Duis tincidunt ante id nisi varius, sed tincidunt ex suscipit.')">Shop Now</button>
+            </div>
+            <div>
+                <img src="C:\Users\yasas\Downloads\ecom\images shoes\m3.png" alt="Men Shoe 3">
+                <p>Men Shoe 3</p>
+                <button class="button" onclick="goToPaymentPage('Men Shoe 3', 130, 'NJC48516-Blue-M', 'Nike', ['Blue', 'Green'], ['M', 'L'], 'Suspendisse eget est a dui varius interdum.')">Shop Now</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    function goToPaymentPage(productName, price, productID, brand, colors, sizes, description) {
+        const url = `payment.html?productName=${encodeURIComponent(productName)}&price=${price}&productID=${encodeURIComponent(productID)}&brand=${encodeURIComponent(brand)}&colors=${encodeURIComponent(colors.join(','))}&sizes=${encodeURIComponent(sizes.join(','))}&description=${encodeURIComponent(description)}`;
+        window.location.href = url;
+    }
+</script>
+
+</body>
+</html>

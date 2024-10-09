@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        h2 {
+            margin-bottom: 20px;
+            color: #0056b3;
+            text-align: center;
+        }
+        .payment-container {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: auto;
+        }
+        .product-details {
+            display: flex;
+            flex-direction: column;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+        }
+        .product-details img {
+            width: 150px; /* Adjusted image size */
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 15px; /* Space between image and details */
+        }
+        .product-info {
+            margin-top: 10px;
+        }
+        .product-info h3 {
+            margin: 5px 0;
+            color: #333;
+        }
+        .product-info p {
+            margin: 5px 0;
+            color: #555;
+        }
+        .size-selection, .quantity-selection, .color-selection, .payment-selection {
+            margin-top: 15px;
+        }
+        select, input[type="number"], input[type="radio"] {
+            padding: 10px;
+            margin-top: 10px;
+            width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .button {
+            padding: 10px 20px;
+            background-color: #0056b3;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            width: 100%;
+        }
+        .success-message {
+            display: none; /* Hidden by default */
+            background-color: #dff0d8;
+            border: 1px solid #d6e9c6;
+            color: #3c763d;
+            padding: 10px;
+            border-radius: 4px;
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Payment Page</h2>
+
+<div class="payment-container">
+    <div class="product-details" id="productDetails">
+        
+        <div class="product-info">
+            <h3 id="productTitle">Product Title</h3>
+            <p><strong>Price:</strong> <span id="productPrice">$0</span></p>
+            <p><strong>Brand:</strong> Nike</p>
+            <p><strong>Available Colors:</strong> Black, Pink, Green</p>
+            <p><strong>Description:</strong> It is the world's largest supplier of athletic shoes and apparel and a major manufacturer of sports equipment.</p>
+        </div>
+    </div>
+
+    <div class="color-selection">
+        <label for="color">Select Color:</label>
+        <select id="color">
+            <option value="black">Black</option>
+            <option value="pink">Pink</option>
+            <option value="green">Green</option>
+        </select>
+    </div>
+    
+    <div class="size-selection">
+        <label for="size">Select Size:</label>
+        <select id="size">
+            <option value="s">Small (S)</option>
+            <option value="m">Medium (M)</option>
+            <option value="l">Large (L)</option>
+            <option value="xl">Extra Large (XL)</option>
+        </select>
+    </div>
+    
+    <div class="quantity-selection">
+        <label for="quantity">Quantity:</label>
+        <input type="number" id="quantity" value="1" min="1">
+    </div>
+
+    <div class="payment-selection">
+        <label>Payment Method:</label><br>
+        <input type="radio" name="payment" value="credit" checked> Credit Card<br>
+        <input type="radio" name="payment" value="paypal"> PayPal<br>
+        <input type="radio" name="payment" value="bank"> Bank Transfer<br>
+    </div>
+
+    <button class="button" onclick="confirmPayment()">Pay Now</button>
+
+    <div class="success-message" id="successMessage">Payment Successful!</div>
+</div>
+
+<script>
+// Function to get URL parameters
+function getQueryParams() {
+    const params = {};
+    const queryString = window.location.search.substring(1);
+    const pairs = queryString.split("&");
+    
+    pairs.forEach(pair => {
+        const [key, value] = pair.split("=");
+        params[decodeURIComponent(key)] = decodeURIComponent(value);
+    });
+    
+    return params;
+}
+
+// Read the parameters
+const params = getQueryParams();
+const productTitle = params.product || "Product Title"; // Fallback title
+const productPrice = params.price || "0"; // Fallback price
+const productImage = params.image || ""; // Fallback image
+
+// Display the product title, price, and image in the payment page
+document.getElementById('productTitle').innerText = productTitle;
+document.getElementById('productPrice').innerText = "$" + productPrice;
+document.getElementById('productImage').src = productImage; // Set the image source
+
+// Function to confirm payment
+function confirmPayment() {
+    const confirmation = confirm("Are you sure you want to proceed with the payment?");
+    if (confirmation) {
+        document.getElementById('successMessage').style.display = 'block';
+    }
+}
+</script>
+
+</body>
+</html>
